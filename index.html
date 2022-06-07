@@ -31,11 +31,11 @@ function answerme() {
 	document.getElementById('Answer').innerHTML = "";
 	var question = document.getElementById('quest').value;
   
- // (qna.model => {
+  (qna.model => {
     // Find the answers
-	 const model = await qna.load();
 	
-    await model.findAnswers(question, passage).then(answers => {
+	
+    model.findAnswers(question, passage).then(answers => {
 	  document.getElementById('loadingDiv').innerHTML = "";
 	  var max= -1;
 	  var tex1="List of possible answers: <br>";
@@ -53,6 +53,6 @@ function answerme() {
 		}
 		document.getElementById('Answer').innerHTML = tex1 + "<br><br>" + "<b><h2>Answer: " + tex2 + "</h2></b>";
     });
- // });
+  });
  }
 </script>
