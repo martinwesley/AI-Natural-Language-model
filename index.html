@@ -21,7 +21,7 @@ var model;
   	// Load the model.
 	
 	qna.load().then(model => {
-		model = await qna.load();
+		model = qna.load();
 		document.getElementById('loadingDiv').innerHTML = "<div class=\"loader\"><p>Model Loaded </p></div>";
 	});
 
