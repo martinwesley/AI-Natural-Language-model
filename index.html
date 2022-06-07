@@ -19,8 +19,11 @@
      	document.getElementById('textbox3').value = passage;
 	document.getElementById('loadingDiv').innerHTML = "<div class=\"loader\"><p>Please wait, AI model will be downloaded for the first time... </p></div>";
   	// Load the model.
+	(async () => {
+  		const model = await qna.load();
+	})();
 	
-	const model = qna.load().then(model => {
+	qna.load().then(model => {
 		//model1 = qna.load();
 		document.getElementById('loadingDiv').innerHTML = "<div class=\"loader\"><p>Model Loaded </p></div>";
 	});
@@ -31,7 +34,7 @@ function answerme() {
 	document.getElementById('Answer').innerHTML = "";
 	var question = document.getElementById('quest').value;
   	console.log(model);
-  qna.load().then(model => {
+ // qna.load().then(model => {
     // Find the answers	
     model.findAnswers(question, passage).then(answers => {
 	  document.getElementById('loadingDiv').innerHTML = "";
@@ -51,6 +54,6 @@ function answerme() {
 		}
 		document.getElementById('Answer').innerHTML = tex1 + "<br><br>" + "<b><h2>Answer: " + tex2 + "</h2></b>";
     });
-  });
+ // });
  }
 </script>
