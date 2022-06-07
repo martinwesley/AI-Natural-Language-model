@@ -28,8 +28,8 @@ function answerme() {
 	document.getElementById('Answer').innerHTML = ""
 	var question = document.getElementById('quest').value;
   // Load the model.
-	var model = qna.model;
-  //(qna.model => {
+
+  (qna.model => {
     // Find the answers
     model.findAnswers(question, passage).then(answers => {
 	  document.getElementById('loadingDiv').innerHTML = "";
@@ -49,6 +49,6 @@ function answerme() {
 		}
 		document.getElementById('Answer').innerHTML = tex1 + "<br><br>" + "<b><h2>Answer: " + tex2 + "</h2></b>";
     });
- // });
+  });
  }
 </script>
