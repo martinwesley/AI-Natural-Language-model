@@ -33,8 +33,8 @@ function answerme() {
   
  // (qna.model => {
     // Find the answers
-	model = qna.load();
-    model.findAnswers(question, passage).then(answers => {
+	 
+    qna.model.findAnswers(question, passage).then(answers => {
 	  document.getElementById('loadingDiv').innerHTML = "";
 	  var max= -1;
 	  var tex1="List of possible answers: <br>";
