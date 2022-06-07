@@ -17,19 +17,19 @@
 
 	var passage = "Google LLC is an American multinational technology company that specializes in Internet-related services and products, which include online advertising technologies, search engine, cloud computing, software, and hardware. It is considered one of the Big Four technology companies, alongside Amazon, Apple, and Facebook. Google was founded in September 1998 by Larry Page and Sergey Brin while they were Ph.D. students at Stanford University in California. Together they own about 14 percent of its shares and control 56 percent of the stockholder voting power through supervoting stock. They incorporated Google as a California privately held company on September 4, 1998, in California. Google was then reincorporated in Delaware on October 22, 2002. An initial public offering (IPO) took place on August 19, 2004, and Google moved to its headquarters in Mountain View, California, nicknamed the Googleplex. Alphabet is the parent company of Google. In August 2015, Google announced plans to reorganize its various interests as a conglomerate called Alphabet Inc. Google is Alphabet's leading subsidiary and will continue to be the umbrella company for Alphabet's Internet interests. Sundar Pichai was appointed CEO of Google, replacing Larry Page who became the CEO of Alphabet."
      	document.getElementById('textbox3').value = passage;
+	document.getElementById('loadingDiv').innerHTML = "<div class=\"loader\"><p>Please wait, AI model will be downloaded for the first time... </p></div>";
   	qna.load().then(model => {
-		document.getElementById('loadingDiv').innerHTML = "<div class=\"loader\"><p>Please wait, AI model will be downloaded for the first time... </p></div>"
+		document.getElementById('loadingDiv').innerHTML = "<div class=\"loader\"><p>Model Loaded </p></div>";
 	});
 
-</script>
-<script>
 function answerme() {
 	document.getElementById('loadingDiv').innerHTML = "<div class=\"loader\"><p>Analyzing... </p></div>"; );
 	let passage = document.getElementById('textbox3').value;
 	document.getElementById('Answer').innerHTML = ""
 	var question = document.getElementById('quest').value;
   // Load the model.
-  (qna.model => {
+	var model = qna.model;
+  //(qna.model => {
     // Find the answers
     model.findAnswers(question, passage).then(answers => {
 	  document.getElementById('loadingDiv').innerHTML = "";
@@ -49,6 +49,6 @@ function answerme() {
 		}
 		document.getElementById('Answer').innerHTML = tex1 + "<br><br>" + "<b><h2>Answer: " + tex2 + "</h2></b>";
     });
-  });
+ // });
  }
 </script>
