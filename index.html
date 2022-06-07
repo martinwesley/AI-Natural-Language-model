@@ -33,8 +33,9 @@ function answerme() {
   
  // (qna.model => {
     // Find the answers
-	 
-    qna.model.findAnswers(question, passage).then(answers => {
+	 const model = await qna.load();
+	
+    await model.findAnswers(question, passage).then(answers => {
 	  document.getElementById('loadingDiv').innerHTML = "";
 	  var max= -1;
 	  var tex1="List of possible answers: <br>";
