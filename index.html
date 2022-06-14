@@ -20,7 +20,7 @@
 	document.getElementById('loadingDiv').innerHTML = "<div class=\"loader\"><p>Please wait, AI model will be downloaded for the first time... </p></div>";
   	// Load the model.
 	qna.load().then(model => {
-		model.save('indexeddb://my-model');
+		window.Bertmodel = model;
     // Find the answers
     model.findAnswers("", "").then(answers => {
 	  document.getElementById('loadingDiv').innerHTML = "<div class=\"loader\"><p>Model Loaded </p></div>";
@@ -35,8 +35,7 @@ function answerme() {
   	
  // qna.load().then(model => {
     // Find the answers	
-	const model = await tf.loadLayersModel('indexeddb://my-model');
-    model.findAnswers(question, passage).then(answers => {
+    Bertmodel.findAnswers(question, passage).then(answers => {
 	  document.getElementById('loadingDiv').innerHTML = "";
 	  var max= -1;
 	  var tex1="List of possible answers: <br>";
