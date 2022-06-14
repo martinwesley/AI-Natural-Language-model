@@ -22,7 +22,7 @@
 	qna.load().then(model => {
 		const model1 = model;
     // Find the answers
-    model1.findAnswers("", "").then(answers => {
+    model.findAnswers("", "").then(answers => {
 	  document.getElementById('loadingDiv').innerHTML = "<div class=\"loader\"><p>Model Loaded </p></div>";
     });
   });
@@ -35,7 +35,7 @@ function answerme() {
   	
  // qna.load().then(model => {
     // Find the answers	
-    model1.findAnswers(question, passage).then(answers => {
+    findAnswers(question, passage).then(answers => {
 	  document.getElementById('loadingDiv').innerHTML = "";
 	  var max= -1;
 	  var tex1="List of possible answers: <br>";
