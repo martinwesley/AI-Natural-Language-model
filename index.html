@@ -20,6 +20,7 @@
 	document.getElementById('loadingDiv').innerHTML = "<div class=\"loader\"><p>Please wait, AI model will be downloaded for the first time... </p></div>";
   	// Load the model.
 	qna.load().then(model => {
+		const model = model;
     // Find the answers
     model.findAnswers("", "").then(answers => {
 	  document.getElementById('loadingDiv').innerHTML = "<div class=\"loader\"><p>Model Loaded </p></div>";
