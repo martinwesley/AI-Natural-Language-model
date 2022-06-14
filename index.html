@@ -19,21 +19,19 @@
      	document.getElementById('textbox3').value = passage;
 	document.getElementById('loadingDiv').innerHTML = "<div class=\"loader\"><p>Please wait, AI model will be downloaded for the first time... </p></div>";
   	// Load the model.
-	(async () => {
-  		const model = await qna.load();
-	})();
-	
 	qna.load().then(model => {
-		//model1 = qna.load();
-		document.getElementById('loadingDiv').innerHTML = "<div class=\"loader\"><p>Model Loaded </p></div>";
-	});
+    // Find the answers
+    model.findAnswers("", "").then(answers => {
+	  document.getElementById('loadingDiv').innerHTML = "<div class=\"loader\"><p>Model Loaded </p></div>";
+    });
+  });
 
 function answerme() {
 	document.getElementById('loadingDiv').innerHTML = "<div class=\"loader\"><p>Analyzing... </p></div>";
 	let passage = document.getElementById('textbox3').value;
 	document.getElementById('Answer').innerHTML = "";
 	var question = document.getElementById('quest').value;
-  	console.log(model);
+  	
  // qna.load().then(model => {
     // Find the answers	
     model.findAnswers(question, passage).then(answers => {
